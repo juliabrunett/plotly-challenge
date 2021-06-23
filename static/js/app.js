@@ -7,36 +7,36 @@ d3.json("../../data/samples.json").then((data) => {
     var otu_labels = [];
     var ids = [];
 
-    var sortedValues = data.samples.map((a,b) => b.sample_values - a.sample_values);
+
+    var sortedValues = data.samples.sort((a,b) => b.sample_values - a.sample_values);
     console.log(sortedValues);
     var slicedData = sortedValues.slice(0,10);
-    var reversedData = slicedData.reverse();
+    console.log(slicedData);
+    // var reversedData = slicedData.reverse();
+    // console.log(reversedData);
 
     // Create an array for ids
-    ids = data.samples.map(d => d.id);
-    // console.log(ids);
+    // ids = data.samples.map(d => d.id);
+    ids = sortedValues.map(d => d.id);
+    console.log(ids);
 
      // Create an array for values
-    values = data.samples.map(d => d.sample_values);
-    // console.log(values[0]);
+    // values = data.samples.map(d => d.sample_values);
+    values = sortedValues.map(d => d.sample_values.slice(0,10).reverse());
+    console.log(values[0]);
 
      // Create an array for otu ids
-    otu_ids = data.samples.map(d => d.otu_ids);
-    // console.log(otu_ids[0]);
+    // otu_ids = data.samples.map(d => d.otu_ids);
+    otu_ids = sortedValues.map(d => d.otu_ids.slice(0,10).reverse());
+    console.log(otu_ids[0]);
 
      // Create an array for otu labels
-    otu_labels = data.samples.map(d => d.otu_labels);
-    // console.log(otu_labels[0]);
+    // otu_labels = data.samples.map(d => d.otu_labels);
+    otu_labels = sortedValues.map(d => d.otu_labels.slice(0,10).reverse());
+    console.log(otu_labels[0]);
 
     // Initialize the graph when loaded with default data
     function init() {
-        var trace1 = [{
-            x: values[0].slice(0,10),
-            y: reversedData.map(object => object.otu_ids),
-            text: reversedData.map(object => object.otu_labels),
-            type: 'bar'
-    
-        }]
     
         var trace1 = [{
             x: values[0],
@@ -54,7 +54,6 @@ d3.json("../../data/samples.json").then((data) => {
 
         Plotly.newPlot(plot, trace1, layout1);
     
-    
     };
 
     // Select the dropdown menu
@@ -71,6 +70,7 @@ d3.json("../../data/samples.json").then((data) => {
 // Function when a dropdown option is chosen
 function updatePlotly() {
     var dataset = dropdownMenu.node().value;
+    console.log(dataset);
     
     for (var i = 0; i < ids.length; i++) {
         switch(dataset) {
@@ -81,32 +81,19 @@ function updatePlotly() {
                 break;
         };
 
-        var update = {
-            title: ids[i]
-        };
-};
+    };
 
-    d3.selectAll("option").on("click", function() {
-        var chosenOption = d3.select(this).text();
-        console.log(chosenOption);
-    });
-
+    var layout_update = {
+        title: dataset
+    };
 
     var plot = d3.selectAll("#plot").node()
 
-    // var update = {
-    //     title: ids[i]
-    // }
 
     Plotly.restyle(plot, "x", [x]);
     Plotly.restyle(plot, "y", [y]);
     Plotly.restyle(plot, "text", [text]);
-    Plotly.restyle(plot, update);
-
-
-    // 
-
-
+    Plotly.update(plot, layout_update);
 
 };
 init();
