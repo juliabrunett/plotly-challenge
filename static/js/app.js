@@ -158,14 +158,52 @@ d3.json("../../data/samples.json").then((data) => {
             }
         };
         
+        // Indicator Plot trace
+        var trace3 = [
+            {
+                domain: { x: [0, 1], y: [0, 1] },
+                value: wfreq[0],
+                title: { text: "Washing Frequency" },
+                type: "indicator",
+                mode: "gauge+number",
+                delta: { reference: 3 },
+                gauge: {
+                    bar: { color: 'blue' },
+                    axis: { range: [0, 9] },
+                    steps: [
+                        { range: [0, 1], color: 'rgb(0, 162, 255)'},
+                        { range: [1, 2], color: 'rgb(36, 172, 250)'},
+                        { range: [2, 3], color: 'rgb(38, 176, 255)'},
+                        { range: [3, 4], color: 'rgb(73, 185, 250)'},
+                        { range: [4, 5], color: 'rgb(87, 191, 252)'},
+                        { range: [5, 6], color: 'rgb(133, 206, 248)'},
+                        { range: [6, 7], color: 'rgb(174, 218, 243)'},
+                        { range: [7, 8], color: 'rgb(217, 241, 255)'},
+                        { range: [8, 9], color: 'rgb(241, 247, 250)'}
+                ],
+                    threshold: {
+                        line: { color: "darkblue", width: 4 },
+                        thickness: 0.75,
+                        value: wfreq[0]
+                    }
+                }
+            }
+        ];
+        
+        // Indicator Layout
+        var layout3 = { width: 600, height: 500, margin: { t: 0, b: 0 } };
+        
+
         
         // Define where the plots will live
         var bar_plot = d3.selectAll("#bar-plot").node();
         var bubble_plot = d3.selectAll("#bubble-plot").node();
+        var indicator_plot = d3.selectAll("#indicator-plot").node();
 
         // Plot the plots
         Plotly.newPlot(bar_plot, trace1, layout1, {responsive: true});
         Plotly.newPlot(bubble_plot, trace2, layout2, {responsive: true});
+        Plotly.newPlot(indicator_plot, trace3, layout3);
     
     };
 
