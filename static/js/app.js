@@ -1,5 +1,5 @@
 // Read in the json file data
-d3.json("../../data/samples.json").then((data) => {
+d3.json("../.././data/samples.json").then((data) => {
 
     // Initialize arrays
     var values = [];
