@@ -1,5 +1,7 @@
 // Read in the json file data
-d3.json("../.././data/samples.json").then((data) => {
+d3.json("https://juliabrunett.github.io/plotly-challenge/data/samples.json").then((data) => {
+
+    // local = '../.././data/samples.json'
 
     // Initialize arrays
     var values = [];
