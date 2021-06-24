@@ -170,22 +170,31 @@ d3.json("../../data/samples.json").then((data) => {
                 mode: "gauge+number",
                 delta: { reference: 3 },
                 gauge: {
-                    bar: { color: 'blue' },
+                    bar: { color: '#518290' },
                     axis: { range: [0, 9] },
                     steps: [
-                        { range: [0, 1], color: 'rgb(0, 162, 255)'},
-                        { range: [1, 2], color: 'rgb(36, 172, 250)'},
-                        { range: [2, 3], color: 'rgb(38, 176, 255)'},
-                        { range: [3, 4], color: 'rgb(73, 185, 250)'},
-                        { range: [4, 5], color: 'rgb(87, 191, 252)'},
-                        { range: [5, 6], color: 'rgb(133, 206, 248)'},
-                        { range: [6, 7], color: 'rgb(174, 218, 243)'},
-                        { range: [7, 8], color: 'rgb(217, 241, 255)'},
-                        { range: [8, 9], color: 'rgb(241, 247, 250)'}
+                        // { range: [0, 1], color: 'rgb(0, 162, 255)'},
+                        // { range: [1, 2], color: 'rgb(36, 172, 250)'},
+                        // { range: [2, 3], color: 'rgb(38, 176, 255)'},
+                        // { range: [3, 4], color: 'rgb(73, 185, 250)'},
+                        // { range: [4, 5], color: 'rgb(87, 191, 252)'},
+                        // { range: [5, 6], color: 'rgb(133, 206, 248)'},
+                        // { range: [6, 7], color: 'rgb(174, 218, 243)'},
+                        // { range: [7, 8], color: 'rgb(217, 241, 255)'},
+                        // { range: [8, 9], color: 'rgb(241, 247, 250)'}
+                        { range: [0, 1], color: '#F2F7F8'},
+                        { range: [1, 2], color: '#E5EEF0'},
+                        { range: [2, 3], color: '#D8E6E9'},
+                        { range: [3, 4], color: '#CBDDE2'},
+                        { range: [4, 5], color: '#BED5DA'},
+                        { range: [5, 6], color: '#B1CCD3'},
+                        { range: [6, 7], color: '#9BBEC7'},
+                        { range: [7, 8], color: '#89B3BD'},
+                        { range: [8, 9], color: '#7CAAB6'}
                     
                     ],
                     threshold: {
-                        line: { color: "darkblue", width: 4 },
+                        line: { color: "#33535B", width: 4 },
                         thickness: 0.75,
                         value: wfreq[0]
                     }

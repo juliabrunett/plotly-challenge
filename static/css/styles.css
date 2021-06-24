@@ -12,13 +12,13 @@ body {
     padding: 8px;
     width: 25rem;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 25px;
 
 }
 
-/* Dropdown Menu: h4 */
-#dropdown-menu h4 {
-    font-size: 16px;
+/* Dropdown Menu: h3 */
+#dropdown-menu h3 {
+    font-size: 20px;
     font-weight: bold;
 }
 
@@ -47,6 +47,7 @@ body {
     font-size: 20px;
     /* color: white; */
     color: black;
+    font-weight: bold;
 }
 
 /* Jumbotron: title header box */
