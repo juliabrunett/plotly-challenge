@@ -148,7 +148,7 @@ d3.json("../../data/samples.json").then((data) => {
             title: 'Bacteria Cultures by Sample',
             showlegend: false,
             height: 600,
-            width: 1000,
+            width: 1200,
             xaxis: {
                 title: "OTU ID"
             },
@@ -171,7 +171,7 @@ d3.json("../../data/samples.json").then((data) => {
 
     // DROPDOWN MENU
     // Select the dropdown menu
-    var dropdownMenu = d3.select("#selID");
+    var dropdownMenu = d3.select("#dropdown-menu>#selID");
     
     // Loop through ids and create options in dropdown menu
     for (var x = 0; x < ids.length; x++) {
@@ -231,7 +231,7 @@ function updatePlotly() {
         };
     
     };
-    
+
     // Select the location of each plot
     var bar_plot = d3.selectAll("#bar-plot").node();
     var bubble_plot = d3.selectAll("#bubble-plot").node();

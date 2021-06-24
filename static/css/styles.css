@@ -1,0 +1,39 @@
+body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+/* Dropdown Menu */
+#dropdown-menu {
+    background-color: lightsalmon;
+    padding: 8px;
+    width: 28rem;
+    align-items: center;
+    margin-bottom: 10px;
+
+}
+
+/* Dropdown Menu: h4 */
+#dropdown-menu h4 {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Card Header */
+.card-header {
+    background-color: lightblue;
+    padding: 8px;
+
+}
+/* Card Header: h3 */
+.card-header h3 {
+    font-size: 20px;
+    color: black;
+}
+
+/* Jumbotron: title header box */
+.jumbotron {
+    background-color: lightcyan;
+}
+
+.card {
+    
+}

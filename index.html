@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bellybutton Biodiversity</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/styles.css">
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
@@ -29,13 +30,14 @@
         <div class="row">
             <div class="col-md-3">
                 <!-- Dropdown Selection Menu -->
-                <div class="dropdown-menu">
+                <div id="dropdown-menu" class="text-center">
+                    <h4>Look at Another Individual</h4>
                     <select id="selID">
                         <option>Choose an ID:</option>
                     </select>
                 </div>
                 <!-- Demographic Card -->
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 28rem;">
                     <div class="card-header text-center">
                         <h3>Demographic Information</h3>
                     </div>
@@ -50,7 +52,7 @@
         </div>
     </div>
     
-
+    <!-- Bottomm Container -->
     <!-- Bubble Plot -->
     <div class="container">
         <div class="row">
