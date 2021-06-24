@@ -7,33 +7,35 @@ d3.json("../../data/samples.json").then((data) => {
     var otu_labels = [];
     var ids = [];
 
-
+    // Sort the samples dataset by sample values
     var sortedValues = data.samples.sort((a,b) => b.sample_values - a.sample_values);
     console.log(sortedValues);
+
+    // Slice the samples dataset into the top 10 values
     var slicedData = sortedValues.slice(0,10);
     console.log(slicedData);
-    // var reversedData = slicedData.reverse();
-    // console.log(reversedData);
 
-    // Create an array for ids
-    // ids = data.samples.map(d => d.id);
+    // IDS: EACH PERSON
+    // Create two arrays for ids
     ids = sortedValues.map(d => d.id);
     console.log("---IDs---");
     console.log(ids);
 
-     // Create an array for values
+    // SAMPLE VALUES: EACH SAMPLE
+    // Create two arrays for values
     values = sortedValues.map(d => d.sample_values);
     top_10_values = sortedValues.map(d => d.sample_values.slice(0,10).reverse());
-    console.log("---Values---");
+    console.log("---TOP 10 Values---");
     console.log(top_10_values[0]);
 
-     // Create an array for otu ids
+    // OTU IDS: EACH SAMPLE
+    // Create two arrays for otu ids
     otu_ids = sortedValues.map(d => d.otu_ids);
     top_10_otu_ids = sortedValues.map(d => d.otu_ids.slice(0,10).reverse());
-    console.log("---OTU IDs---");
+    console.log("---TOP 10 OTU IDs---");
     console.log(top_10_otu_ids[0]);
 
-    // Initialize an array
+    // Initialize the string array for otu ids
     var string_otu_ids = [];
     
     // Function to convert numbers to string 
@@ -46,19 +48,68 @@ d3.json("../../data/samples.json").then((data) => {
         string_otu_ids[i] = top_10_otu_ids[i].map(convertToString);
     };
 
-    console.log("---String OTU IDs---");
+    // STRING OTU IDS: EACH SAMPLE
+    // Check string OTU ID array
+    console.log("---TOP 10 String OTU IDs---");
     console.log(string_otu_ids[0]);
 
-     // Create an array for otu labels
+    // OTU LABELS: EACH SAMPLE
+    // Create two arrays for otu labels
     otu_labels = sortedValues.map(d => d.otu_labels);
     top_10_otu_labels = sortedValues.map(d => d.otu_labels.slice(0,10).reverse());
-    console.log("---OTU Labels---");
+    console.log("---TOP 10 OTU Labels---");
     console.log(top_10_otu_labels[0]);
+
+    // METADATA DEMOGRAPHICS
+    // Bring in the metadata object
+    var metadata = data.metadata;
+    console.log(metadata);
+
+    // Define the id array
+    var individual_id = metadata.map(d => d.id);
+    console.log(individual_id);
+
+    // Define the ethnicity array
+    var ethnicity = metadata.map(d => d.ethnicity);
+    console.log(ethnicity);
+
+    // Define the gender array
+    var gender = metadata.map(d => d.gender);
+    console.log(gender);
+
+    // Define the age array
+    var age = metadata.map(d => d.age);
+    console.log(age);
+
+    // Define the location array
+    var location = metadata.map(d => d.location);
+    console.log(location);
+    
+    // Define the bbtype array
+    var bbtype = metadata.map(d => d.bbtype);
+    console.log(bbtype);
+
+    // Define the wfreq array
+    var wfreq = metadata.map(d => d.wfreq);
+    console.log(wfreq);
+
+    // DEMOGRAPHIC CARD
+    // Select the card location
+    card_list = d3.select("#list-group");
+    
+    // Append a list option with each demographic value
+    card_list.append("li").text(`ID: ${individual_id[0]}`).attr("class", "list-group-item");
+    card_list.append("li").text(`Ethnicity: ${ethnicity[0]}`).attr("class", "list-group-item");
+    card_list.append("li").text(`Gender: ${gender[0]}`).attr("class", "list-group-item");
+    card_list.append("li").text(`Age: ${age[0]}`).attr("class", "list-group-item");
+    card_list.append("li").text(`Location: ${location[0]}`).attr("class", "list-group-item");
+    card_list.append("li").text(`bbtype: ${bbtype[0]}`).attr("class", "list-group-item");
+    card_list.append("li").text(`wfreq: ${wfreq[0]}`).attr("class", "list-group-item");
 
     // Initialize the graph when loaded with default data
     function init() {
     
-        // Bar Plot
+        // Bar Plot trace
         var trace1 = [{
             x: top_10_values[0],
             y: string_otu_ids[0],
@@ -67,7 +118,8 @@ d3.json("../../data/samples.json").then((data) => {
             orientation: "h",
             ids: string_otu_ids[0]
         }];
-    
+
+        // Bar Plot layout
         var layout1 = {
             title: "Top 10 OTU's Found",
             xaxis: {
@@ -79,7 +131,7 @@ d3.json("../../data/samples.json").then((data) => {
             }
         };
 
-        // Bubble Plot
+        // Bubble Plot trace
         var trace2 = [{
             x: otu_ids[0],
             y: values[0],
@@ -91,7 +143,7 @@ d3.json("../../data/samples.json").then((data) => {
             }
         }];
         
-        
+        // Bubble plot layout
         var layout2 = {
             title: 'Bacteria Cultures by Sample',
             showlegend: false,
@@ -117,7 +169,7 @@ d3.json("../../data/samples.json").then((data) => {
     
     };
 
-
+    // DROPDOWN MENU
     // Select the dropdown menu
     var dropdownMenu = d3.select("#selID");
     
@@ -130,25 +182,14 @@ d3.json("../../data/samples.json").then((data) => {
     // When the page is changed, update the plot
     d3.selectAll("select").on("change", updatePlotly);
 
+    
+
 // Function when a dropdown option is chosen
 function updatePlotly() {
     var dataset = dropdownMenu.node().value;
     console.log(dataset);
-    
-    // Update the title for the plot
-    var layout_update = {
-        xaxis: {
-                title: "Values"
-            },
-        yaxis: {
-                title: "OTU IDs",
-                type: "category"
-            }
-    };
 
-    console.log(dataset);
-
-    // Loop through ids to create cases
+    // Loop through ids to create cases (when each dataset is chosen)
     for (var i = 0; i < ids.length; i++) {
         switch(dataset) {
             case ids[i]:
@@ -161,30 +202,55 @@ function updatePlotly() {
                 x2 = otu_ids[i];
                 y2 = values[i];
                 text2 = otu_labels[i];
-                layout_update.title = `ID: ${dataset}`;
                 break;
         };
     };
 
+    // Loop through to change the demographic card
+    for (var i = 0; i < individual_id.length; i++) {
+        // if the dataset chosen is equal to the ID
+        if (dataset == individual_id[i]) {
+            // Set the ID iteration to a variable
+            var thisID = i;
+
+        // DEMOGRAPHIC CARD
+        // Select the card location
+        card_list = d3.select("#list-group");
+
+        // Clear the demograhic card
+        card_list.html("");
+        
+        // Append a list option with each demographic value
+        card_list.append("li").text(`ID: ${individual_id[thisID]}`).attr("class", "list-group-item");
+        card_list.append("li").text(`Ethnicity: ${ethnicity[thisID]}`).attr("class", "list-group-item");
+        card_list.append("li").text(`Gender: ${gender[thisID]}`).attr("class", "list-group-item");
+        card_list.append("li").text(`Age: ${age[thisID]}`).attr("class", "list-group-item");
+        card_list.append("li").text(`Location: ${location[thisID]}`).attr("class", "list-group-item");
+        card_list.append("li").text(`bbtype: ${bbtype[thisID]}`).attr("class", "list-group-item");
+        card_list.append("li").text(`wfreq: ${wfreq[thisID]}`).attr("class", "list-group-item");
+        };
+    
+    };
+    
+    // Select the location of each plot
     var bar_plot = d3.selectAll("#bar-plot").node();
     var bubble_plot = d3.selectAll("#bubble-plot").node();
 
-    //Plotly.update(bar_plot, [layout_update.title]);
+    // Restyle the bar plot with new data
     Plotly.restyle(bar_plot, "x", [x]);
     Plotly.restyle(bar_plot, "y", [y]);
     Plotly.restyle(bar_plot, "text", [text]);
 
+    // Restyle the bubble plot with new data
     Plotly.restyle(bubble_plot, "x", [x2]);
     Plotly.restyle(bubble_plot, "y", [y2]);
     Plotly.restyle(bubble_plot, "text", [text2]);
 
-    
-    
-
-    console.log(dataset);
-
 };
+
+// Call the default plot
 init();
+
 });
 
 
