@@ -24,20 +24,32 @@
         </div>
     </div>
 
-    <!-- Bar Plot -->
+    <!-- Top Container -->
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-3">
                 <!-- Dropdown Selection Menu -->
-                <select id="selID">
-                    <option>Choose an ID:</option>
-                </select>
+                <div class="dropdown-menu">
+                    <select id="selID">
+                        <option>Choose an ID:</option>
+                    </select>
+                </div>
+                <!-- Demographic Card -->
+                <div class="card" style="width: 18rem;">
+                    <div class="card-header text-center">
+                        <h3>Demographic Information</h3>
+                    </div>
+                    <ul class="list-group list-group-flush" id="list-group"></ul>
+                </div>
+            </div>
+            <!-- Bar Plot -->
+            <div class="col-md-9">
                 <!-- Plot -->
                 <div id="bar-plot"></div>
-                
             </div>
         </div>
     </div>
+    
 
     <!-- Bubble Plot -->
     <div class="container">
@@ -50,15 +62,10 @@
         </div>
     </div>
 
-    <!-- Demographic Card -->
-    <div class="card" style="width: 18rem;">
-        <div class="card-header">
-        <h3>Demographic Information</h3>
-        </div>
-        <ul class="list-group list-group-flush" id="list-group"></ul>
-    </div>
+    
+    
 
-    <!-- Import dependencies for d3, plotly, and javascript -->
+    <!-- Import dependencies javascript -->
     
     
     <script src="data/samples.json"></script>
