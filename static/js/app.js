@@ -36,10 +36,16 @@ d3.json("../../data/samples.json").then((data) => {
     // Initialize an array
     var string_otu_ids = [];
     
-    // Loop through to convert int ids to strings
+    // Function to convert numbers to string 
+    function convertToString(x) {
+        return `OTU ${String(x)}`;
+    }
+
+    // Loop through to convert int ids to strings (with OTU at beginning)
     for (var i = 0; i < top_10_otu_ids.length; i++) {
-        string_otu_ids[i] = top_10_otu_ids[i].map(String);
+        string_otu_ids[i] = top_10_otu_ids[i].map(convertToString);
     };
+
     console.log("---String OTU IDs---");
     console.log(string_otu_ids[0]);
 
@@ -58,11 +64,12 @@ d3.json("../../data/samples.json").then((data) => {
             y: string_otu_ids[0],
             text: top_10_otu_labels[0],
             type: "bar",
-            orientation: "h"
+            orientation: "h",
+            ids: string_otu_ids[0]
         }];
     
         var layout1 = {
-            title: `ID: ${ids[0]}`,
+            title: "Top 10 OTU's Found",
             xaxis: {
                 title: "Values"
             },
@@ -86,7 +93,7 @@ d3.json("../../data/samples.json").then((data) => {
         
         
         var layout2 = {
-            title: 'Sample Value by OTU ID',
+            title: 'Bacteria Cultures by Sample',
             showlegend: false,
             height: 600,
             width: 1000,
@@ -130,7 +137,6 @@ function updatePlotly() {
     
     // Update the title for the plot
     var layout_update = {
-        title: `ID: ${dataset}`,
         xaxis: {
                 title: "Values"
             },
@@ -146,9 +152,12 @@ function updatePlotly() {
     for (var i = 0; i < ids.length; i++) {
         switch(dataset) {
             case ids[i]:
+                // Variables to change for Bar Plot
                 x = top_10_values[i];
                 y = string_otu_ids[i];
                 text = top_10_otu_labels[i];
+
+                // Variables to change for Bubble Plot
                 x2 = otu_ids[i];
                 y2 = values[i];
                 text2 = otu_labels[i];
@@ -160,7 +169,7 @@ function updatePlotly() {
     var bar_plot = d3.selectAll("#bar-plot").node();
     var bubble_plot = d3.selectAll("#bubble-plot").node();
 
-    Plotly.update(bar_plot, [layout_update.title]);
+    //Plotly.update(bar_plot, [layout_update.title]);
     Plotly.restyle(bar_plot, "x", [x]);
     Plotly.restyle(bar_plot, "y", [y]);
     Plotly.restyle(bar_plot, "text", [text]);
