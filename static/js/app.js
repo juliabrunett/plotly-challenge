@@ -183,7 +183,7 @@ d3.json("../../data/samples.json").then((data) => {
                         { range: [7, 8], color: 'rgb(217, 241, 255)'},
                         { range: [8, 9], color: 'rgb(241, 247, 250)'}
                     
-                ],
+                    ],
                     threshold: {
                         line: { color: "darkblue", width: 4 },
                         thickness: 0.75,
@@ -244,6 +244,9 @@ function updatePlotly() {
                 x2 = otu_ids[i];
                 y2 = values[i];
                 text2 = otu_labels[i];
+
+                // Variables to change for Indicator Plot
+                value = wfreq[i];
                 break;
         };
     };
@@ -277,6 +280,7 @@ function updatePlotly() {
     // Select the location of each plot
     var bar_plot = d3.selectAll("#bar-plot").node();
     var bubble_plot = d3.selectAll("#bubble-plot").node();
+    var indicator_plot = d3.selectAll("#indicator-plot").node();
 
     // Restyle the bar plot with new data
     Plotly.restyle(bar_plot, "x", [x]);
@@ -287,6 +291,10 @@ function updatePlotly() {
     Plotly.restyle(bubble_plot, "x", [x2]);
     Plotly.restyle(bubble_plot, "y", [y2]);
     Plotly.restyle(bubble_plot, "text", [text2]);
+
+    // Restyle the indicator plot with new data
+    Plotly.restyle(indicator_plot, "value", [value]);
+    Plotly.restyle(indicator_plot, "gauge.threshold.value", [value]);
 
 };
 
