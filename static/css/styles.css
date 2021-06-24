@@ -3,11 +3,12 @@
 /* Body */
 body {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    background-color: white;
+    /* background-color: rgb(245, 245, 245); */
+    background-color: rgb(235, 235, 235)
 }
 /* Dropdown Menu */
 #dropdown-menu {
-    background-color: lightseagreen;
+    background-color: rgb(155, 190, 199);
     padding: 8px;
     width: 28rem;
     align-items: center;
@@ -23,25 +24,61 @@ body {
 
 /* Card Header */
 .card-header {
-    background-color: lightcyan;
+    /* background-color: rgb(84, 122, 165); */
+    background-color: rgb(239, 203, 104);
     padding: 8px;
 
+}
+
+/* Card */
+.card {
+    border-style: solid;
+    border-color: black;
+    border-radius: 1px;
+    
+}
+
+.list-group {
+    margin-bottom: 0px;
 }
 /* Card Header: h3 */
 .card-header h3 {
     font-size: 20px;
+    /* color: white; */
     color: black;
 }
 
 /* Jumbotron: title header box */
 .jumbotron {
-    background-color: lightcyan;
-    width: 100%
+    background-color: rgb(0, 42, 50);
+    width: 100%;
+    color: rgb(239, 203, 104)
+}
+
+.jumbotron p {
+    color: white;
 }
 
 #explanation {
-    background-color: lightseagreen;
+    background-color:  rgb(155, 190, 199);
     padding: 5px;
     text-align: center;
-    color: white;
+    color: black;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+#bar-plot {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#bubble-plot {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#indicator-plot {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

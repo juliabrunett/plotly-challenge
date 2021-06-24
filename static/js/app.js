@@ -109,6 +109,7 @@ d3.json("../../data/samples.json").then((data) => {
     // Initialize the graph when loaded with default data
     function init() {
     
+        
         // Bar Plot trace
         var trace1 = [{
             x: top_10_values[0],
@@ -147,8 +148,8 @@ d3.json("../../data/samples.json").then((data) => {
         var layout2 = {
             title: 'Bacteria Cultures by Sample',
             showlegend: false,
-            height: 600,
-            width: 1200,
+            // height: 600,
+            // width: 1200,
             xaxis: {
                 title: "OTU ID"
             },
@@ -180,6 +181,7 @@ d3.json("../../data/samples.json").then((data) => {
                         { range: [6, 7], color: 'rgb(174, 218, 243)'},
                         { range: [7, 8], color: 'rgb(217, 241, 255)'},
                         { range: [8, 9], color: 'rgb(241, 247, 250)'}
+                    
                 ],
                     threshold: {
                         line: { color: "darkblue", width: 4 },
@@ -192,8 +194,9 @@ d3.json("../../data/samples.json").then((data) => {
         
         // Indicator Layout
         var layout3 = { width: 600, height: 500, margin: { t: 0, b: 0 } };
-        
+        // var layout3 = { margin: { t: 0, b: 0 } };
 
+        var config = { responsive: true };
         
         // Define where the plots will live
         var bar_plot = d3.selectAll("#bar-plot").node();
@@ -201,9 +204,9 @@ d3.json("../../data/samples.json").then((data) => {
         var indicator_plot = d3.selectAll("#indicator-plot").node();
 
         // Plot the plots
-        Plotly.newPlot(bar_plot, trace1, layout1, {responsive: true});
-        Plotly.newPlot(bubble_plot, trace2, layout2, {responsive: true});
-        Plotly.newPlot(indicator_plot, trace3, layout3);
+        Plotly.newPlot(bar_plot, trace1, layout1, config);
+        Plotly.newPlot(bubble_plot, trace2, layout2, config);
+        Plotly.newPlot(indicator_plot, trace3, layout3, config);
     
     };
 
