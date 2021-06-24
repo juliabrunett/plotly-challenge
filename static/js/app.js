@@ -117,7 +117,8 @@ d3.json("../../data/samples.json").then((data) => {
             text: top_10_otu_labels[0],
             type: "bar",
             orientation: "h",
-            ids: string_otu_ids[0]
+            ids: string_otu_ids[0],
+            marker: { color: `rgb(78, 116, 125)`}
         }];
 
         // Bar Plot layout
@@ -193,8 +194,8 @@ d3.json("../../data/samples.json").then((data) => {
         ];
         
         // Indicator Layout
-        var layout3 = { width: 600, height: 500, margin: { t: 0, b: 0 } };
-        // var layout3 = { margin: { t: 0, b: 0 } };
+        var layout3 = { margin: { t: 0, b: 0 } };
+        // var layout3 = { width: 500, height: 300, margin: { t: 0, b: 0 } };
 
         var config = { responsive: true };
         

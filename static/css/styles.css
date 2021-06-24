@@ -10,7 +10,7 @@ body {
 #dropdown-menu {
     background-color: rgb(155, 190, 199);
     padding: 8px;
-    width: 28rem;
+    width: 25rem;
     align-items: center;
     margin-bottom: 10px;
 
@@ -41,6 +41,7 @@ body {
 .list-group {
     margin-bottom: 0px;
 }
+
 /* Card Header: h3 */
 .card-header h3 {
     font-size: 20px;
@@ -71,6 +72,8 @@ body {
 #bar-plot {
     margin-top: 10px;
     margin-bottom: 10px;
+    /* margin-left: 10px; */
+    /* width: 80rem; */
 }
 
 #bubble-plot {
