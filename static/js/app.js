@@ -79,14 +79,14 @@ d3.json("../../data/samples.json").then((data) => {
             text: otu_labels[0],
             mode: 'markers',
             marker: {
-            color: ['rgb(93, 164, 214)', 'rgb(255, 144, 14)',  'rgb(44, 160, 101)', 'rgb(255, 65, 54)'],
-            size: values[0]
+                color: otu_ids[0],
+                size: values[0]
             }
         }];
         
         
         var layout2 = {
-            title: 'Bubble Chart Hover Text',
+            title: 'Sample Value by OTU ID',
             showlegend: false,
             height: 600,
             width: 1000,
@@ -100,14 +100,13 @@ d3.json("../../data/samples.json").then((data) => {
         };
         
         
-        
         // Define where the plots will live
         var bar_plot = d3.selectAll("#bar-plot").node();
         var bubble_plot = d3.selectAll("#bubble-plot").node();
 
         // Plot the plots
-        Plotly.newPlot(bar_plot, trace1, layout1);
-        Plotly.newPlot(bubble_plot, trace2, layout2);
+        Plotly.newPlot(bar_plot, trace1, layout1, {responsive: true});
+        Plotly.newPlot(bubble_plot, trace2, layout2, {responsive: true});
     
     };
 
@@ -147,19 +146,30 @@ function updatePlotly() {
     for (var i = 0; i < ids.length; i++) {
         switch(dataset) {
             case ids[i]:
-                x = values[i];
+                x = top_10_values[i];
                 y = string_otu_ids[i];
-                text = otu_labels[i];
+                text = top_10_otu_labels[i];
+                x2 = otu_ids[i];
+                y2 = values[i];
+                text2 = otu_labels[i];
+                layout_update.title = `ID: ${dataset}`;
                 break;
         };
     };
 
-    var bar_plot = d3.selectAll("#bar-plot").node()
+    var bar_plot = d3.selectAll("#bar-plot").node();
+    var bubble_plot = d3.selectAll("#bubble-plot").node();
 
-    Plotly.update(bar_plot, layout_update);
+    Plotly.update(bar_plot, [layout_update.title]);
     Plotly.restyle(bar_plot, "x", [x]);
     Plotly.restyle(bar_plot, "y", [y]);
     Plotly.restyle(bar_plot, "text", [text]);
+
+    Plotly.restyle(bubble_plot, "x", [x2]);
+    Plotly.restyle(bubble_plot, "y", [y2]);
+    Plotly.restyle(bubble_plot, "text", [text2]);
+
+    
     
 
     console.log(dataset);
