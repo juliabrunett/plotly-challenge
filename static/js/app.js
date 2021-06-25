@@ -65,35 +65,35 @@ d3.json("https://juliabrunett.github.io/plotly-challenge/data/samples.json").the
     // METADATA DEMOGRAPHICS
     // Bring in the metadata object
     var metadata = data.metadata;
-    console.log(metadata);
+    // console.log(metadata);
 
     // Define the id array
     var individual_id = metadata.map(d => d.id);
-    console.log(individual_id);
+    // console.log(individual_id);
 
     // Define the ethnicity array
     var ethnicity = metadata.map(d => d.ethnicity);
-    console.log(ethnicity);
+    // console.log(ethnicity);
 
     // Define the gender array
     var gender = metadata.map(d => d.gender);
-    console.log(gender);
+    // console.log(gender);
 
     // Define the age array
     var age = metadata.map(d => d.age);
-    console.log(age);
+    // console.log(age);
 
     // Define the location array
     var location = metadata.map(d => d.location);
-    console.log(location);
+    // console.log(location);
     
     // Define the bbtype array
     var bbtype = metadata.map(d => d.bbtype);
-    console.log(bbtype);
+    // console.log(bbtype);
 
     // Define the wfreq array
     var wfreq = metadata.map(d => d.wfreq);
-    console.log(wfreq);
+    // console.log(wfreq);
 
     // DEMOGRAPHIC CARD
     // Select the card location
@@ -105,8 +105,8 @@ d3.json("https://juliabrunett.github.io/plotly-challenge/data/samples.json").the
     card_list.append("li").text(`Gender: ${gender[0]}`).attr("class", "list-group-item");
     card_list.append("li").text(`Age: ${age[0]}`).attr("class", "list-group-item");
     card_list.append("li").text(`Location: ${location[0]}`).attr("class", "list-group-item");
-    card_list.append("li").text(`bbtype: ${bbtype[0]}`).attr("class", "list-group-item");
-    card_list.append("li").text(`wfreq: ${wfreq[0]}`).attr("class", "list-group-item");
+    card_list.append("li").text(`Bellybutton Type: ${bbtype[0]}`).attr("class", "list-group-item");
+    card_list.append("li").text(`Wash Frequency: ${wfreq[0]}`).attr("class", "list-group-item");
 
     // Initialize the graph when loaded with default data
     function init() {
@@ -116,21 +116,21 @@ d3.json("https://juliabrunett.github.io/plotly-challenge/data/samples.json").the
         var trace1 = [{
             x: top_10_values[0],
             y: string_otu_ids[0],
-            text: top_10_otu_labels[0],
+            hovertext: top_10_otu_labels[0],
             type: "bar",
             orientation: "h",
             ids: string_otu_ids[0],
-            marker: { color: `rgb(78, 116, 125)`}
+            marker: { color: `rgb(78, 116, 125)` }
         }];
 
         // Bar Plot layout
         var layout1 = {
-            title: "Top 10 OTU's Found",
+            title: "Top 10 OTUs Found in Test Subject",
             xaxis: {
-                title: "Values"
+                title: "Sample Values"
             },
             yaxis: {
-                title: "OTU IDs",
+                // title: "OTU IDs",
                 type: "category"
             }
         };
@@ -139,7 +139,7 @@ d3.json("https://juliabrunett.github.io/plotly-challenge/data/samples.json").the
         var trace2 = [{
             x: otu_ids[0],
             y: values[0],
-            text: otu_labels[0],
+            hovertext: otu_labels[0],
             mode: 'markers',
             marker: {
                 color: otu_ids[0],
@@ -149,7 +149,7 @@ d3.json("https://juliabrunett.github.io/plotly-challenge/data/samples.json").the
         
         // Bubble plot layout
         var layout2 = {
-            title: 'Bacteria Cultures by Sample',
+            title: "Number of OTUs per Sample",
             showlegend: false,
             // height: 600,
             // width: 1200,
@@ -167,23 +167,14 @@ d3.json("https://juliabrunett.github.io/plotly-challenge/data/samples.json").the
             {
                 domain: { x: [0, 1], y: [0, 1] },
                 value: wfreq[0],
-                title: { text: "Washing Frequency" },
+                title: "Wash Frequency<br><span style='font-size:0.8em;color:gray'>Number of Bellybutton Scrubs<br>per Week</span>", // { text: "Washing Frequency" },
                 type: "indicator",
                 mode: "gauge+number",
-                delta: { reference: 3 },
+                // delta: { reference: 3 },
                 gauge: {
-                    bar: { color: '#518290' },
+                    bar: { color: '#518290'},  
                     axis: { range: [0, 9] },
                     steps: [
-                        // { range: [0, 1], color: 'rgb(0, 162, 255)'},
-                        // { range: [1, 2], color: 'rgb(36, 172, 250)'},
-                        // { range: [2, 3], color: 'rgb(38, 176, 255)'},
-                        // { range: [3, 4], color: 'rgb(73, 185, 250)'},
-                        // { range: [4, 5], color: 'rgb(87, 191, 252)'},
-                        // { range: [5, 6], color: 'rgb(133, 206, 248)'},
-                        // { range: [6, 7], color: 'rgb(174, 218, 243)'},
-                        // { range: [7, 8], color: 'rgb(217, 241, 255)'},
-                        // { range: [8, 9], color: 'rgb(241, 247, 250)'}
                         { range: [0, 1], color: '#F2F7F8'},
                         { range: [1, 2], color: '#E5EEF0'},
                         { range: [2, 3], color: '#D8E6E9'},
@@ -196,7 +187,7 @@ d3.json("https://juliabrunett.github.io/plotly-challenge/data/samples.json").the
                     
                     ],
                     threshold: {
-                        line: { color: "#33535B", width: 4 },
+                        line: { color: "#33535B" , width: 4 }, //'rgb(239, 203, 104)'
                         thickness: 0.75,
                         value: wfreq[0]
                     }
@@ -205,7 +196,7 @@ d3.json("https://juliabrunett.github.io/plotly-challenge/data/samples.json").the
         ];
         
         // Indicator Layout
-        var layout3 = { margin: { t: 0, b: 0 } };
+        var layout3 = { margin: { t: 100, b: 100 } };
         // var layout3 = { width: 500, height: 300, margin: { t: 0, b: 0 } };
 
         var config = { responsive: true };
@@ -282,8 +273,8 @@ function updatePlotly() {
         card_list.append("li").text(`Gender: ${gender[thisID]}`).attr("class", "list-group-item");
         card_list.append("li").text(`Age: ${age[thisID]}`).attr("class", "list-group-item");
         card_list.append("li").text(`Location: ${location[thisID]}`).attr("class", "list-group-item");
-        card_list.append("li").text(`bbtype: ${bbtype[thisID]}`).attr("class", "list-group-item");
-        card_list.append("li").text(`wfreq: ${wfreq[thisID]}`).attr("class", "list-group-item");
+        card_list.append("li").text(`Bellybutton Type: ${bbtype[thisID]}`).attr("class", "list-group-item");
+        card_list.append("li").text(`Wash Frequency: ${wfreq[thisID]}`).attr("class", "list-group-item");
         };
     
     };
@@ -296,12 +287,12 @@ function updatePlotly() {
     // Restyle the bar plot with new data
     Plotly.restyle(bar_plot, "x", [x]);
     Plotly.restyle(bar_plot, "y", [y]);
-    Plotly.restyle(bar_plot, "text", [text]);
+    Plotly.restyle(bar_plot, "hovertext", [text]);
 
     // Restyle the bubble plot with new data
     Plotly.restyle(bubble_plot, "x", [x2]);
     Plotly.restyle(bubble_plot, "y", [y2]);
-    Plotly.restyle(bubble_plot, "text", [text2]);
+    Plotly.restyle(bubble_plot, "hovertext", [text2]);
 
     // Restyle the indicator plot with new data
     Plotly.restyle(indicator_plot, "value", [value]);
