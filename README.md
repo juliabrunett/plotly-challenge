@@ -8,5 +8,5 @@
 - *js*: app.js (JavaScript file with the code to dynamically create and change each plot based on the selection)
 - *css*: styles.css (CSS file to style the html page)
 
-index.html: HTML file with code for the page
+**index.html**: HTML file with code for the page
 
