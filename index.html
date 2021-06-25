@@ -20,7 +20,6 @@
             <div class="col-md-12 jumbotron text-center">
                 <h1>Bellybutton Biodiversity Dashboard</h1>
                 <p>Select a Test Subject ID to explore bellybutton biodiversity</p>
-                
             </div>
         </div>
     </div>
@@ -41,10 +40,12 @@
                     <div class="card-header text-center">
                         <h3>Demographic Information</h3>
                     </div>
+                    <!-- List of Demographic Information -->
                     <ul class="list-group list-group-flush" id="list-group"></ul>
                 </div>
             </div>
             
+            <!-- Explanation/Notes Box -->
             <div class="col-md-9 col-sm-7">
                 <div id="explanation">
                     <p>What's an OTU?</p> <p>Operational Taxonomic Units (i.e., microbial species found in bellybuttons)</p>
@@ -59,11 +60,10 @@
     </div>
     
     <!-- Bottom Container -->
-    <!-- Bubble Plot -->
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <!-- Plot -->
+                <!-- Bubble Plot -->
                 <div id="bubble-plot"></div>
             </div>
             <div class="col-md-4">
@@ -74,15 +74,9 @@
         </div>
     </div>
 
-    <!-- Link to Dataset -->
-    <footer>
-            <p>Want to learn more? Click <a href="http://robdunnlab.com/projects/belly-button-biodiversity/">here </a>to visit the source of the dataset to look more into the study.</p>
-    </footer>
-
     <!-- Import dependencies javascript -->
-    
     <script src="https://d3js.org/d3.v5.min.js"></script>
-    <!-- <script src="data/samples.json"></script> -->
+    <script src="data/samples.json"></script>
     <script src="static/js/app.js"></script>
     
 </body>
