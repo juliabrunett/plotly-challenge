@@ -14,9 +14,9 @@
 - Screenshots of webpage
 
 # Top of Dashboard
-[Top of Page](images/top_page.png)
+[Top of Page](./images/top_page.png)
 
 # Bottom of Dashboard
-[Bottom of Page](images/bottom_page.png)
+[Bottom of Page](./images/bottom_page.png)
 
 
