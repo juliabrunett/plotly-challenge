@@ -13,10 +13,8 @@
 **images**:
 - Screenshots of webpage
 
-# Top of Dashboard
+# Dashboard
 ![Top of Page](./images/top_page.png)
-
-# Bottom of Dashboard
 ![Bottom of Page](./images/bottom_page.png)
 
 
