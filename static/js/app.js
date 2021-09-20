@@ -91,6 +91,14 @@ d3.json("https://juliabrunett.github.io/plotly-challenge/data/samples.json").the
     var bbtype = metadata.map(d => d.bbtype);
     // console.log(bbtype);
 
+    // DEFINE the first bellybutton type (spelled out)
+    if (bbtype[0] == "I") {
+        var bb_type = "Innie"
+    }
+    else if (bbtype[0] == "O") {
+        var bb_type = "Outie"
+    }
+
     // Define the wfreq array
     var wfreq = metadata.map(d => d.wfreq);
     // console.log(wfreq);
@@ -105,7 +113,7 @@ d3.json("https://juliabrunett.github.io/plotly-challenge/data/samples.json").the
     card_list.append("li").text(`Gender: ${gender[0]}`).attr("class", "list-group-item");
     card_list.append("li").text(`Age: ${age[0]}`).attr("class", "list-group-item");
     card_list.append("li").text(`Location: ${location[0]}`).attr("class", "list-group-item");
-    card_list.append("li").text(`Bellybutton Type: ${bbtype[0]}`).attr("class", "list-group-item");
+    card_list.append("li").text(`Bellybutton Type: ${bb_type}`).attr("class", "list-group-item");
     card_list.append("li").text(`Wash Frequency: ${wfreq[0]}`).attr("class", "list-group-item");
 
     // Initialize the graph when loaded with default data
@@ -132,7 +140,8 @@ d3.json("https://juliabrunett.github.io/plotly-challenge/data/samples.json").the
             yaxis: {
                 // title: "OTU IDs",
                 type: "category"
-            }
+            }, 
+            font: { family: 'Times' }
         };
 
         // Bubble Plot trace
@@ -159,7 +168,8 @@ d3.json("https://juliabrunett.github.io/plotly-challenge/data/samples.json").the
             yaxis: {
                 title: "Sample Values",
                 //type: "category"
-            }
+            },
+            font: { family: 'Times'}
         };
         
         // Indicator Plot trace
@@ -172,7 +182,7 @@ d3.json("https://juliabrunett.github.io/plotly-challenge/data/samples.json").the
                 mode: "gauge+number",
                 // delta: { reference: 3 },
                 gauge: {
-                    bar: { color: '#518290'},  
+                    bar: { color: '#518290' },  // 'rgb(239, 203, 104)', '#518290'
                     axis: { range: [0, 9] },
                     steps: [
                         { range: [0, 1], color: '#F2F7F8'},
@@ -187,7 +197,7 @@ d3.json("https://juliabrunett.github.io/plotly-challenge/data/samples.json").the
                     
                     ],
                     threshold: {
-                        line: { color: "#33535B" , width: 4 }, //'rgb(239, 203, 104)'
+                        line: { color: "#33535B" , width: 4 }, //'rgb(239, 203, 104)', "#33535B"
                         thickness: 0.75,
                         value: wfreq[0]
                     }
@@ -196,7 +206,7 @@ d3.json("https://juliabrunett.github.io/plotly-challenge/data/samples.json").the
         ];
         
         // Indicator Layout
-        var layout3 = { margin: { t: 100, b: 100 } };
+        var layout3 = { margin: { t: 100, b: 100 }, font: { family: 'Times' } };
         // var layout3 = { width: 500, height: 300, margin: { t: 0, b: 0 } };
 
         var config = { responsive: true };
@@ -260,6 +270,14 @@ function updatePlotly() {
             // Set the ID iteration to a variable
             var thisID = i;
 
+        // DEFINE the first bellybutton type (spelled out)
+        if (bbtype[thisID] == "I") {
+            var bb_type = "Innie"
+        }
+        else if (bbtype[thisID] == "o") {
+            var bb_type = "Outie"
+        }
+        
         // DEMOGRAPHIC CARD
         // Select the card location
         card_list = d3.select("#list-group");
@@ -273,7 +291,7 @@ function updatePlotly() {
         card_list.append("li").text(`Gender: ${gender[thisID]}`).attr("class", "list-group-item");
         card_list.append("li").text(`Age: ${age[thisID]}`).attr("class", "list-group-item");
         card_list.append("li").text(`Location: ${location[thisID]}`).attr("class", "list-group-item");
-        card_list.append("li").text(`Bellybutton Type: ${bbtype[thisID]}`).attr("class", "list-group-item");
+        card_list.append("li").text(`Bellybutton Type: ${bb_type}`).attr("class", "list-group-item");
         card_list.append("li").text(`Wash Frequency: ${wfreq[thisID]}`).attr("class", "list-group-item");
         };
     

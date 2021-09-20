@@ -1,6 +1,6 @@
 /* Body */
 body {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Cambria', Georgia, serif;
     /* background-color: rgb(245, 245, 245); */
     background-color: rgb(235, 235, 235)
 }
@@ -40,6 +40,7 @@ body {
 /* List Group: Demographic Card */
 .list-group {
     margin-bottom: 0px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 /* Card Header: h3 */
@@ -68,12 +69,13 @@ body {
     text-align: center;
     color: black;
     font-size: 18px;
+    /* font-family: Georgia, 'Times New Roman', Times, serif; */
     /* margin-bottom: 10px; */
 }
 
 /* Bar Plot */
 #bar-plot {
-    margin-top: 10px;
+    margin-top: 25px;
     margin-bottom: 10px;
 }
 
