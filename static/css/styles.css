@@ -1,15 +1,73 @@
+/* Navbar Addition */
+#logo {
+    width: 100px;
+    height: auto;
+    display: block;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    margin-right: 1px;
+    margin-left: 1px;
+    padding: 0px;
+    border: #90A187ff solid;
+    border-width: 8px;
+}
+
+/* Navbar */
+.navbar {
+    padding: 0px;
+    background: whitesmoke;
+    width: 100%;
+
+}
+
+/* Navbar: specifically the website title */
+.navbar-light .navbar-brand {
+    /* font-size: 25px; */
+    /* font-weight: bold; */
+    color: whitesmoke;
+    /* background: #90A187ff; */
+    padding: 20px;
+    margin-left: 20px;
+    color: whitesmoke;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+
+}
+
+/* Navbar: list objects */
+.navbar li {
+    display: inline-block;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* Navbar: list objects (link text) */
+.navbar li a {
+    text-decoration: none;
+    color: #34553Aff;
+    font-size: 18px;
+    text-align: right;
+
+}
+
+@media (max-width: 768px) {
+    #logo {
+        width: 80px;
+    }
+}
+
 /* Body */
 body {
     font-family: 'Cambria', Georgia, serif;
     /* background-color: rgb(245, 245, 245); */
-    background-color: rgb(235, 235, 235)
+    background-color: rgb(235, 235, 235);
 }
 
 /* Dropdown Menu */
 #dropdown-menu {
     background-color: rgb(155, 190, 199);
     padding: 8px;
-    width: 25rem;
+    width: 15rem;
     align-items: center;
     margin-bottom: 25px;
 
@@ -53,13 +111,20 @@ body {
 
 /* Jumbotron: title header box */
 .jumbotron {
+    margin-top: 40px;
     background-color: rgb(0, 42, 50);
-    color: rgb(239, 203, 104)
+    color: rgb(239, 203, 104);
+    
+}
+
+.jumbotron h1 {
+    font-size: 60px;
 }
 
 /* Jumbotron sub-text */
 .jumbotron p {
     color: white;
+    font-size: 20px;
 }
 
 /* Notes/Explanation box */

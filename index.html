@@ -6,13 +6,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bellybutton Biodiversity</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="static/css/styles.css">
     <!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 
 <body>
+<!--Nav Bar-->
+<nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="https://juliabrunett.github.io/">
+        <img src="images/logo_smaller.png" id="logo"/></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!--Menu Items: justified to end-->
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <!-- Home Button -->
+           <li class="nav-item">
+                <a class="nav-link" href="https://juliabrunett.github.io/plotly-challenge">Home</a>
+            </li>
+            <li class="btn-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Projects
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="https://juliabrunett.github.io/Web-Design-Challenge/">Latitude Weather Analysis</a>
+                  <a class="dropdown-item" href="https://juliabrunett.github.io/javascript-challenge/UFO-level-2/">UFO Sightings</a>
+                  <a class="dropdown-item" href="https://juliabrunett.github.io/plotly-challenge/">Bellybutton Biodiversity Dashboard</a>
+                  <a class="dropdown-item" href="https://juliabrunett.github.io/D3-Challenge/D3_data_journalism/index.html">D3 Times</a>
+                  <a class="dropdown-item" href="https://juliabrunett.github.io/excel-challenge/Kickstarter-Campaigns/index.html">Kickstarter Campaign Analysis</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://github.com/juliabrunett" target="_blank">GitHub<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.linkedin.com/in/julia-brunett-313078171/">LinkedIn<span class="sr-only">(current)</span></a>
+            </li>
+            
+        </ul>
+    </div>
+</nav>
 
     <!-- Title Header -->
     <div class="container">
@@ -36,7 +77,7 @@
                     </select>
                 </div>
                 <!-- Demographic Card -->
-                <div class="card" style="width: 25rem;">
+                <div class="card" style="width: 15rem;">
                     <div class="card-header text-center">
                         <h3>Demographic Information</h3>
                     </div>
