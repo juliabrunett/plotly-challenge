@@ -177,7 +177,7 @@ d3.json("https://juliabrunett.github.io/plotly-challenge/data/samples.json").the
             {
                 domain: { x: [0, 1], y: [0, 1] },
                 value: wfreq[0],
-                title: "Wash Frequency<br><span style='font-size:0.8em;color:gray'>Number of Bellybutton Scrubs<br>per Week</span>", // { text: "Washing Frequency" },
+                title: "Mouse Age<br><span style='font-size:0.8em;color:gray'>Months", // { text: "Washing Frequency" },
                 type: "indicator",
                 mode: "gauge+number",
                 // delta: { reference: 3 },
